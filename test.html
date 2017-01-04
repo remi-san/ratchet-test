@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title>Ratchet</title>
+	</head>
+	<body>
+	<script>
+		// Then some JavaScript in the browser:
+		var conn = new WebSocket('ws://localhost:8080/chat');
+		conn.onerror = function(e) { console.log(e); };
+		conn.onclose = function(e) { console.log(e); };
+		conn.onmessage = function(e) { console.log(e.data); };
+        conn.onopen = function (e) {
+            console.log(e);
+            conn.send('Hello Me!');
+        };
+	</script>
+	</body>
+</html>
